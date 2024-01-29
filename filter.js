@@ -19,7 +19,10 @@ const people = [
   },
 ];
 
-// const returnPaul = people.filter((person) => person.age === 18);
+// const pplOver21 = people.filter(person => person.age >= 21)
+
+
+// const returnPaul = people.filter((person) => person.name === "Paul")[0];
 // console.log(returnPaul);
 
 // Complex Filtering
@@ -56,10 +59,26 @@ const students = [
   },
 ];
 
-const filterByExp = students.filter((student) => {
-  const strongSkills = student["skills"].filter(
-    (item) => item.yrsExperience >= 5
-  );
-  return strongSkills.length > 0;
-});
-console.log(filterByExp);
+const has5yrsExp = skill => skill.yrsExperience >= 5
+
+const hasStrongSkills = student =>
+student.skills.filter(has5yrsExp).length > 0;
+
+const candidates = students.filter(hasStrongSkills)
+
+// console.log(candidates)
+
+const candNames = candidates.map(candidate => candidate.name)
+console.log(candNames)
+
+
+// const strongExp = students.filter(student => {
+//   let checkExp = student.skills.filter(skill => skill.yrsExperience >= 5)
+//   console.log(checkExp)
+//   return checkExp.length > 0;
+//   })
+  
+//   console.log(strongExp)
+  
+
+
